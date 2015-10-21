@@ -1,3 +1,4 @@
+
 // This requires the necessary libraries for the webapp.
 // (1) express - this provides the express web framework
 // (2) handlebars - this provides the handlebars templating framework
@@ -27,9 +28,14 @@ app.set('port', process.env.PORT || 3000);
 // lets your express app know what the view engine is. We then set an
 // app variable 'view engine' to 'handlebars'. This is mostly boiler
 // plate so you need not worry about the details.
+
+
+// setup handlebars
+
 var view = handlebars.create({ defaultLayout: 'main' });
 app.engine('handlebars', view.engine);
 app.set('view engine', 'handlebars');
+
 
 // This does the setup for static file serving. It uses express'
 // static middleware to look for files in /public if no other route
@@ -80,6 +86,16 @@ if (!result.success) {
 }
 });
 
+// Dynamic About View
+
+app.get('/about', (req, res) => {
+	res.render('about', {
+		//fortune: fortune.get(),
+		// uncomment to invoke page specific test.
+		// pageTestScript: '/qa/tests-about.js'
+	});
+});
+
 app.get('/:user(dhnguyen|jinhuiliang|mccaffre|sorloff|slambrou|tdnguyen)?',
 	(req, res) => {
 		// TODO
@@ -90,7 +106,7 @@ app.get('/:user(dhnguyen|jinhuiliang|mccaffre|sorloff|slambrou|tdnguyen)?',
 			notFound404(req, res);
 		} else {
 			res.render('team', {
-				member: result.data,
+				members: result.data,
 				pageTestScript: '/qa/tests-team.js'
 			});
 		}
@@ -143,4 +159,9 @@ app.listen(app.get('port'), () => {
 	console.log('Express started on http://localhost:' +
 	app.get('port') + '; press Ctrl-C to terminate');
 });
+
+
+
+
+
 

@@ -16,6 +16,7 @@
     "archiver": "^0.15.1",
     "chai": "^3.3.0",
     "fs-extra": "^0.24.0",
-    "mocha": "^2.3.3"
+    "mocha": "^2.3.3",
+    "mocha-traceur": "^2.1.0"
   }
 }
