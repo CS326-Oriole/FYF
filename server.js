@@ -99,13 +99,13 @@ app.get('/about', (req, res) => {
 app.get('/team', (req, res) => {
 		var result = team.one(req.query.user);
 		if (!result.success) {
-			notFound404(req, res);
-		} else {
-			res.render('team', {
-				members: result.data,
-				pageTestScript: '/qa/tests-team.js'
-			});
+			result = team.all(); //This catches the case when the user is not found or we are on the /team page
 		}
+
+		res.render('team', {
+			members: result.data,
+			pageTestScript: '/qa/tests-team.js'
+		});
 	});
 
 
