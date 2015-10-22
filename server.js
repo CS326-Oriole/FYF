@@ -95,9 +95,7 @@ if (!result.success) {
 
 app.get('/about', (req, res) => {
 	res.render('about', {
-		//fortune: fortune.get(),
-		// uncomment to invoke page specific test.
-		// pageTestScript: '/qa/tests-about.js'
+
 	});
 });
 
