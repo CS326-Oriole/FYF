@@ -96,12 +96,8 @@ app.get('/about', (req, res) => {
 	});
 });
 
-app.get('/:user(dhnguyen|jinhuiliang|mccaffre|sorloff|slambrou|tdnguyen)?',
-	(req, res) => {
-		// TODO
-		var name = req.params.user;
-		console.log(name);
-		var result = team.one(name);
+app.get('/team', (req, res) => {
+		var result = team.one(req.query.user);
 		if (!result.success) {
 			notFound404(req, res);
 		} else {
@@ -159,9 +155,3 @@ app.listen(app.get('port'), () => {
 	console.log('Express started on http://localhost:' +
 	app.get('port') + '; press Ctrl-C to terminate');
 });
-
-
-
-
-
-
