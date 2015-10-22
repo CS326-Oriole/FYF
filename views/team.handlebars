@@ -4,8 +4,9 @@
 <h2>Total: ({{members.length}})</h2>
 <ul>
     {{#each members}}
-        <li><strong>{{this.fname}} {{this.lname}}</strong> - {{this.year}} {{this.description}}</li>
-        <br>
+        <li><strong>{{this.fname}} {{this.lname}}</strong> - {{this.year}} </li>
+        {{this.description}}
+        <p><br></p>
     {{/each}}
     <a href="./"> Root Route </a>
 </ul>
