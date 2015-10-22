@@ -109,7 +109,8 @@ app.get('/team', (req, res) => {
 			members: result.data,
 			pageTestScript: '/qa/tests-team.js'
 		});
-	});
+});
+
 
 
 
