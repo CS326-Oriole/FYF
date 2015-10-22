@@ -74,6 +74,10 @@ app.use(testmw);
 var team = require('./lib/team.js');
 
 app.get('/', (req, res) => {
+	res.render('home', {
+
+	});
+	/*
 	// TODO
 	var result = team.all();
 if (!result.success) {
@@ -84,6 +88,7 @@ if (!result.success) {
 		pageTestScript: '/qa/tests-team.js'
 	});
 }
+*/
 });
 
 // Dynamic About View
