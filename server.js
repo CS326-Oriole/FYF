@@ -99,6 +99,31 @@ app.get('/about', (req, res) => {
 	});
 });
 
+app.get('/admin', (req, res) => {
+	res.render('admin', {
+
+	});
+});
+
+app.get('/chat', (req, res) => {
+	res.render('chat', {
+
+	});
+});
+
+app.get('/login', (req, res) => {
+	res.render('login', {
+
+	});
+});
+
+app.get('/profile', (req, res) => {
+	res.render('profile', {
+
+	});
+});
+
+
 app.get('/team', (req, res) => {
 		var result = team.one(req.query.user);
 		if (!result.success) {
@@ -111,21 +136,6 @@ app.get('/team', (req, res) => {
 		});
 });
 
-app.get('admin', (req, res) => {
-	res.render('admin');
-});
-
-app.get('chat', (req, res) => {
-	res.render('chat');
-});
-
-app.get('login', (req, res) => {
-	res.render('login');
-});
-
-app.get('profile', (req, res) => {
-	res.render('profile');
-});
 
 //////////////////////////////////////////////////////////////////////
 ///// Error Middleware ///////////////////////////////////////////////
