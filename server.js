@@ -83,14 +83,46 @@ function testmw(req, res, next) {
 // This adds our testing middleware to the express app.
 app.use(testmw);
 
+// Body Parser:
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
+// Cookie Parser:
+app.use(cookieParser());
+
+// Session Support:
+app.use(session({
+  secret: 'octocat',
+  // Both of the options below are deprecated, but should be false
+  // until removed from the library - sometimes, the reality of
+  // libraries can be rather annoying!
+  saveUninitialized: false, // does not save uninitialized session.
+  resave: false             // does not save session if not modified.
+}));
+
+// Flash Support.
+app.use(flash());
+
+// Morgan Logging Support.
+// Using 'conbined' gives you Apache-style logging support.
+app.use(morgan('combined'));
+
+
+//TO-DO: User routes
+app.use('/user', require('./routes/user-routes'));
+app.use('/admin', require('./routes/admin-routes'));
+
 //////////////////////////////////////////////////////////////////////
 ///// User Defined Routes ////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
 var team = require('./lib/team.js');
 
 app.get('/', (req, res) => {
+	res.redirect('/user/login');
+	/* Old, to be deleted
 	res.render('home', {
 	});
+	*/
 });
 
 // Dynamic About View
