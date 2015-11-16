@@ -5,6 +5,21 @@
 var express    = require('express');
 var handlebars = require('express-handlebars');
 
+// The body parser is used to parse the body of an HTTP request.
+var bodyParser = require('body-parser');
+
+// Require session library.
+var session    = require('express-session');
+
+// Require flash library.
+var flash      = require('connect-flash');
+
+// The cookie parser is used to parse cookies in an HTTP header.
+var cookieParser = require('cookie-parser');
+
+// Morgan for server logging.
+var morgan = require('morgan');
+
 //////////////////////////////////////////////////////////////////////
 ///// Express App Setup //////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
@@ -75,51 +90,33 @@ var team = require('./lib/team.js');
 
 app.get('/', (req, res) => {
 	res.render('home', {
-
 	});
-	/*
-	// TODO
-	var result = team.all();
-if (!result.success) {
-	notFound404(req, res);
-} else {
-	res.render('team', {
-		members: result.data,
-		pageTestScript: '/qa/tests-team.js'
-	});
-}
-*/
 });
 
 // Dynamic About View
 
 app.get('/about', (req, res) => {
 	res.render('about', {
-
 	});
 });
 
 app.get('/admin', (req, res) => {
 	res.render('admin', {
-
 	});
 });
 
 app.get('/chat', (req, res) => {
 	res.render('chat', {
-
 	});
 });
 
 app.get('/login', (req, res) => {
 	res.render('login', {
-
 	});
 });
 
 app.get('/profile', (req, res) => {
 	res.render('profile', {
-
 	});
 });
 
