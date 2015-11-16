@@ -36,7 +36,7 @@ router.post('/auth', (req, res) => {
 
   // Redirect to main if session and user is online:
   if (user && online[user]) {
-    res.redirect('/user/home');    
+    res.redirect('/user/home');
   }
   else {
     // Pull the values from the form:
@@ -91,6 +91,24 @@ router.get('/home', function(req, res) {
     // capture the user object or create a default.
     var message = req.flash('home') || 'Login Successful';
     res.render('home', { });
+  }
+});
+
+// Renders the users that are online.
+router.get('/online', function(req, res) {
+  // Grab the user session if it exists:
+  var user = req.session.user;
+
+  // If no session, redirect to login.
+  if (!user) {
+    req.flash('login', 'Not logged in');
+    res.redirect('/user/login');
+  }
+  else {
+    res.render('online', {
+      title : 'Online Users',
+      online: online
+    });
   }
 });
 
