@@ -154,13 +154,24 @@ router.get('/chat', function(req, res) {
     }
     else {
       res.render('chat', {
-        title : 'Online Users',
-        online: online,
+        title : result + 'Chat',
         category: result
       });
     }
 
   }
 });
+
+router.get('/faq', function (req, res) {
+  res.render('faq', {
+    title : 'FAQ',
+  });
+});
+
+/*
+router.get('/profile', function (req, res) {
+
+});
+*/
 
 module.exports = router;
