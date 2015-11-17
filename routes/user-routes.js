@@ -134,4 +134,33 @@ router.get('/online', function(req, res) {
   }
 });
 
+// Renders the users that are online.
+router.get('/chat', function(req, res) {
+  // Grab the user session if it exists:
+  var user = req.session.user;
+  var result = req.query.category;
+
+  console.log("POOOOOOOOP" + result);
+
+  // If no session, redirect to login.
+  if (!user) {
+    req.flash('login', 'Not logged in');
+    res.redirect('/user/login');
+  }
+  else {
+    if (result !== "videogames" && result !== "sports" && result !== "hobbies") {
+      res.status(404);
+	    res.render('404');
+    }
+    else {
+      res.render('chat', {
+        title : 'Online Users',
+        online: online,
+        category: result
+      });
+    }
+
+  }
+});
+
 module.exports = router;
