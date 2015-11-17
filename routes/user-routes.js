@@ -94,6 +94,28 @@ router.get('/home', function(req, res) {
   }
 });
 
+
+// Performs logout functionality - it does nothing!
+router.get('/logout', function(req, res) {
+  // Grab the user session if logged in.
+  var user = req.session.user;
+
+  // If the client has a session, but is not online it
+  // could mean that the server restarted, so we require
+  // a subsequent login.
+  if (user && !online[user.name]) {
+    delete req.session.user;
+  }
+  // Otherwise, we delete both.
+  else if (user) {
+    delete online[user.name];
+    delete req.session.user;
+  }
+
+  // Redirect to login regardless.
+  res.redirect('/user/login');
+});
+
 // Renders the users that are online.
 router.get('/online', function(req, res) {
   // Grab the user session if it exists:
