@@ -1,6 +1,6 @@
 .login {
   text-align: center;
-  margin-top: 30px;
+  margin: auto;
 }
 
 .form {
@@ -9,18 +9,10 @@
   color: black;
 }
 
-.form * {
-  margin-top: 10px;
-}
-
 .formContainer {
-  border: 4px #00ff00 solid;
+  border: 4px #009933 solid;
   border-radius: 10px;
-  margin-left: 500px;
-  margin-right: 500px;
-  color: #00ff00;
-}
-
-.formContainer * {
-  margin-top: 15px;
+  margin-right: 25%;
+  margin-left: 25%;
+  color: #009933;
 }
