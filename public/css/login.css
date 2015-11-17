@@ -5,7 +5,7 @@
 
 .form {
   padding-top: 40px;
-  padding-bottom: 80px;
+  padding-bottom: 30px;
   color: black;
 }
 
@@ -19,4 +19,8 @@
   margin-left: 500px;
   margin-right: 500px;
   color: #00ff00;
+}
+
+.formContainer * {
+  margin-top: 15px;
 }
