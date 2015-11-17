@@ -1,0 +1,22 @@
+.login {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.form {
+  padding-top: 40px;
+  padding-bottom: 80px;
+  color: black;
+}
+
+.form * {
+  margin-top: 10px;
+}
+
+.formContainer {
+  border: 4px #00ff00 solid;
+  border-radius: 10px;
+  margin-left: 500px;
+  margin-right: 500px;
+  color: #00ff00;
+}

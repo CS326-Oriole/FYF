@@ -1,34 +1,52 @@
-<img src="img/loginframe.png"/>
-<br>
+<link rel="stylesheet" type="text/css" href="../css/login.css">
 
 <div>{{message}}</div><br>
 
-<form method="post" action="/user/auth">
-  User Name: <input type="text" name="name"> <br>
-  Password:  <input type="password" name="pass"> <br>
-  <button>Login</button>
-</form>
+<div class="login">
+  <div class="formContainer">
+    <h2>
+      Please login to FYF
+    </h2>
 
-<a href="./admin" style="padding: 20px;">
-  Admin
-</a>
+    <form class="form" method="post" action="/user/auth">
+      <input type="text" name="name" placeholder="Username"> <br>
+      <input type="password" name="pass" placeholder="Password"> <br>
+      <button>Login</button>
+    </form>
 
-<a href="./team"  style="padding: 20px;">
-  Team
-</a>
+    <span>
+      Insert Google OAuth here.
+    </span>
 
-<a href="./chat"  style="padding: 20px;">
-  Chat
-</a>
+    <p>
+      Don't have an account? Sign up here!
+    </p>
 
-<a href="./login"  style="padding: 20px;">
-  User Login
-</a>
+  </div>
+</div>
 
-<a href="./profile"  style="padding: 20px;">
-  Profile
-</a>
+<div style="margin-top: 50px; text-align: center;">
+  <a href="./admin" style="padding: 20px;">
+    Admin
+  </a>
 
-<a href="./">
-  Root Route
-</a>
+  <a href="./team"  style="padding: 20px;">
+    Team
+  </a>
+
+  <a href="./chat"  style="padding: 20px;">
+    Chat
+  </a>
+
+  <a href="./login"  style="padding: 20px;">
+    User Login
+  </a>
+
+  <a href="./profile"  style="padding: 20px;">
+    Profile
+  </a>
+
+  <a href="./">
+    Root Route
+  </a>
+</div>
