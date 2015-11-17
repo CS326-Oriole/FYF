@@ -1,0 +1,16 @@
+.selection * {
+  padding: 30px;
+  text-align: center;
+}
+
+.subject {
+  margin: 10px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  border: 2px solid black;
+}
+
+.home {
+  text-align: center;
+  color: #00ff00;
+}
