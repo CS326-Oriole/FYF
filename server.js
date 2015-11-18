@@ -132,6 +132,8 @@ app.get('/about', (req, res) => {
 	});
 });
 
+
+
 app.get('/admin', (req, res) => {
 	res.render('admin', {
 	});
