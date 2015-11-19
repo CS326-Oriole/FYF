@@ -34,14 +34,10 @@ router.post('/auth', (req, res) => {
 
   var anon = req.query.anon;
 
-  console.log(req.query.anon);
+  console.log("Anonymous: " + req.query.anon);
 
-  console.log("AUTHENTICATION");
 
-  if (anon) {
-
-    console.log("AH POOP")
-
+  if (anon) {  
     model.addAnon(function (error, person) {
       // add the user to the map of online users:
       online[person.name] = person;
