@@ -37,7 +37,7 @@ router.post('/auth', (req, res) => {
   console.log("Anonymous: " + req.query.anon);
 
 
-  if (anon) {  
+  if (anon) {
     model.addAnon(function (error, person) {
       // add the user to the map of online users:
       online[person.name] = person;
@@ -46,7 +46,7 @@ router.post('/auth', (req, res) => {
       req.session.user = person;
 
       // Pass a message to main:
-      req.flash('main', 'authentication successful');
+      req.flash('home', 'Anonymous Login Successful');
       res.redirect('/user/home');
     })
   }
@@ -80,7 +80,7 @@ router.post('/auth', (req, res) => {
             req.session.user = user;
 
             // Pass a message to main:
-            req.flash('main', 'authentication successful');
+            req.flash('home', 'Authentication Successful');
             res.redirect('/user/home');
           }
         });
@@ -111,7 +111,9 @@ router.get('/home', function(req, res) {
   else {
     // capture the user object or create a default.
     var message = req.flash('home') || 'Login Successful';
-    res.render('home', { });
+    res.render('home', {
+      message: message
+    });
   }
 });
 
