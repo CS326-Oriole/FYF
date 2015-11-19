@@ -1,3 +1,8 @@
+.questionContainer {
+	text-align: center;
+	margin: 9%;
+}
+
 .question1 {
 	text-align: left;
 	margin-top: 5%;
@@ -12,4 +17,3 @@
 	text-align: left;
 	margin-top:5.02%;
 }
-

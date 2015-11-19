@@ -160,8 +160,8 @@ router.get('/chat', function(req, res) {
   }
 });
 
-router.get('/faq', function (req, res) {
-  res.render('faq', {
+router.get('/FAQ', function (req, res) {
+  res.render('FAQ', {
     title : 'FAQ',
   });
 });
