@@ -32,42 +32,67 @@ router.post('/auth', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
 
+  var anon = req.query.anon;
+
+  console.log(req.query.anon);
+
   console.log("AUTHENTICATION");
 
-  // Redirect to main if session and user is online:
-  if (user && online[user]) {
-    res.redirect('/user/home');
-  }
-  else {
-    // Pull the values from the form:
-    var name = req.body.name;
-    var pass = req.body.pass;
+  if (anon) {
 
-    if (!name || !pass) {
-      req.flash('login', 'did not provide the proper credentials');
-      res.redirect('/user/login');
+    console.log("AH POOP")
+
+    model.addAnon(function (error, person) {
+      // add the user to the map of online users:
+      online[person.name] = person;
+
+      // create a session variable to represent stateful connection
+      req.session.user = person;
+
+      // Pass a message to main:
+      req.flash('main', 'authentication successful');
+      res.redirect('/user/home');
+    })
+  }
+
+  else {
+    // Redirect to main if session and user is online:
+    if (user && online[user]) {
+      res.redirect('/user/home');
     }
     else {
-      model.lookup(name, pass, function(error, user) {
-        if (error) {
-          // Pass a message to login:
-          req.flash('login', error);
-          res.redirect('/user/login');
-        }
-        else {
-          // add the user to the map of online users:
-          online[user.name] = user;
+      // Pull the values from the form:
+      var name = req.body.name;
+      var pass = req.body.pass;
 
-          // create a session variable to represent stateful connection
-          req.session.user = user;
+      if (!name || !pass) {
+        req.flash('login', 'did not provide the proper credentials');
+        res.redirect('/user/login');
+      }
+      else {
+        model.lookup(name, pass, function(error, user) {
+          if (error) {
+            // Pass a message to login:
+            req.flash('login', error);
+            res.redirect('/user/login');
+          }
+          else {
+            // add the user to the map of online users:
+            online[user.name] = user;
 
-          // Pass a message to main:
-          req.flash('main', 'authentication successful');
-          res.redirect('/user/home');
-        }
-      });
+            // create a session variable to represent stateful connection
+            req.session.user = user;
+
+            // Pass a message to main:
+            req.flash('main', 'authentication successful');
+            res.redirect('/user/home');
+          }
+        });
+      }
     }
   }
+
+
 });
 
 // Renders the main user view.

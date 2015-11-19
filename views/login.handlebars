@@ -21,9 +21,12 @@
       Don't want to login?
     <p>
 
-    <a>
-      Sign in as an anonymous user to get started!
-    </a>
+    <form method="post" action="/user/auth?anon=true">
+      <button>
+        Sign in as an anonymous user to get started!
+      </button>
+    </form>
+
 
     <p>
       Don't have an account?
