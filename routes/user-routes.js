@@ -221,5 +221,11 @@ router.get('/about', function (req, res) {
   });
 });
 
+router.get('/team', function (req, res) {
+  res.render('team', {
+    title : 'Team',
+  });
+});
+
 
 module.exports = router;
