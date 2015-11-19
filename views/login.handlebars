@@ -1,7 +1,5 @@
 <link rel="stylesheet" type="text/css" href="../css/login.css">
 
-<div>{{message}}</div><br>
-
 <div class="container-fluid login">
   <div class="formContainer">
     <h2>
@@ -14,18 +12,25 @@
         <input type="password" name="pass" placeholder="Password"> <br>
         <button>Login</button>
       </form>
+
+      <div>{{message}}</div>
+
     </div>
 
-    <h3>
+    <p>
       Don't want to login?
-    </h3>
+    <p>
 
-    <button>
-      Sign in as an anonymous user to get started!
-    </button>
+    <form method="post" action="/user/auth?anon=true">
+      <button>
+        Sign in as an anonymous user to get started!
+      </button>
+    </form>
+
 
     <p>
-      Don't have an account? Sign up here!
+      Don't have an account?
+      <a>Sign up here!</a>
     </p>
 
   </div>

@@ -17,9 +17,12 @@
 
 	</head>
 	<body>
+
 		<div class="container-fluid banner row">
 				<div class="col-md-1">
-					<img src="../img/FYF.png" alt="a" style="height: 100px; width: 100px;"> </img>
+					<a href="/">
+						<img src="../img/FYF.png" alt="a" style="height: 100px; width: 100px;"> </img>
+					</a>
 				</div>
 				<div class="col-md-3" style="padding-top: 10px;">
 					<h2> Find Your Flock </h2>
@@ -33,36 +36,38 @@
 				</div>
 
 				<div class="col-md-3">
-					<h3> Login | About | FAQ </h3>
+					<ul id="nav">
+						<li class="nav-option"><a href="/">Login</a></li>
+						<li class="nav-separator">|</li>
+						<li class="nav-option"><a href="/about">About</a></li>
+						<li class="nav-separator">|</li>
+						<li class="nav-option"><a href="/user/FAQ">FAQ</a></li>
+					</ul>
 				</div>
 
 		</div>
 
 		{{{body}}}
 
-		<div style="margin-top: 50px; text-align: center;">
-		  <a href="./admin" style="padding: 20px;">
+		<div class="footer">
+		  <a href="../admin">
 		    Admin
 		  </a>
 
-		  <a href="./team"  style="padding: 20px;">
+		  <a href="./team">
 		    Team
 		  </a>
 
-		  <a href="./chat"  style="padding: 20px;">
-		    Chat
-		  </a>
-
-		  <a href="./login"  style="padding: 20px;">
+		  <a href="./login">
 		    User Login
 		  </a>
 
-		  <a href="./profile"  style="padding: 20px;">
+		  <a href="./profile">
 		    Profile
 		  </a>
 
-		  <a href="./">
-		    Root Route
+		  <a href="./logout">
+		    Logout
 		  </a>
 		</div>
 

@@ -32,42 +32,63 @@ router.post('/auth', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
 
-  console.log("AUTHENTICATION");
+  var anon = req.query.anon;
 
-  // Redirect to main if session and user is online:
-  if (user && online[user]) {
-    res.redirect('/user/home');
+  console.log("Anonymous: " + req.query.anon);
+
+
+  if (anon) {
+    model.addAnon(function (error, person) {
+      // add the user to the map of online users:
+      online[person.name] = person;
+
+      // create a session variable to represent stateful connection
+      req.session.user = person;
+
+      // Pass a message to main:
+      req.flash('home', 'Anonymous Login Successful');
+      res.redirect('/user/home');
+    })
   }
-  else {
-    // Pull the values from the form:
-    var name = req.body.name;
-    var pass = req.body.pass;
 
-    if (!name || !pass) {
-      req.flash('login', 'did not provide the proper credentials');
-      res.redirect('/user/login');
+  else {
+    // Redirect to main if session and user is online:
+    if (user && online[user]) {
+      res.redirect('/user/home');
     }
     else {
-      model.lookup(name, pass, function(error, user) {
-        if (error) {
-          // Pass a message to login:
-          req.flash('login', error);
-          res.redirect('/user/login');
-        }
-        else {
-          // add the user to the map of online users:
-          online[user.name] = user;
+      // Pull the values from the form:
+      var name = req.body.name;
+      var pass = req.body.pass;
 
-          // create a session variable to represent stateful connection
-          req.session.user = user;
+      if (!name || !pass) {
+        req.flash('login', 'did not provide the proper credentials');
+        res.redirect('/user/login');
+      }
+      else {
+        model.lookup(name, pass, function(error, user) {
+          if (error) {
+            // Pass a message to login:
+            req.flash('login', error);
+            res.redirect('/user/login');
+          }
+          else {
+            // add the user to the map of online users:
+            online[user.name] = user;
 
-          // Pass a message to main:
-          req.flash('main', 'authentication successful');
-          res.redirect('/user/home');
-        }
-      });
+            // create a session variable to represent stateful connection
+            req.session.user = user;
+
+            // Pass a message to main:
+            req.flash('home', 'Authentication Successful');
+            res.redirect('/user/home');
+          }
+        });
+      }
     }
   }
+
+
 });
 
 // Renders the main user view.
@@ -90,7 +111,9 @@ router.get('/home', function(req, res) {
   else {
     // capture the user object or create a default.
     var message = req.flash('home') || 'Login Successful';
-    res.render('home', { });
+    res.render('home', {
+      message: message
+    });
   }
 });
 
@@ -140,8 +163,6 @@ router.get('/chat', function(req, res) {
   var user = req.session.user;
   var result = req.query.category;
 
-  console.log("POOOOOOOOP" + result);
-
   // If no session, redirect to login.
   if (!user) {
     req.flash('login', 'Not logged in');
@@ -162,16 +183,49 @@ router.get('/chat', function(req, res) {
   }
 });
 
-router.get('/faq', function (req, res) {
-  res.render('faq', {
+router.get('/FAQ', function (req, res) {
+  res.render('FAQ', {
     title : 'FAQ',
   });
 });
 
-/*
 router.get('/profile', function (req, res) {
 
+  // Grab the user session if it exists:
+  var user = req.session.user;
+
+  // If no session, redirect to login.
+  if (!user) {
+    req.flash('login', 'Not logged in');
+    res.redirect('/user/login');
+  }
+  else {
+    var admin = "";
+
+    if (user.admin === true) {
+      admin = "Administrator";
+    }
+
+    res.render('profile', {
+      name: user.name,
+      admin: admin
+    });
+  }
+
+
 });
-*/
+
+router.get('/about', function (req, res) {
+  res.render('about', {
+    title : 'About',
+  });
+});
+
+router.get('/team', function (req, res) {
+  res.render('team', {
+    title : 'Team',
+  });
+});
+
 
 module.exports = router;
