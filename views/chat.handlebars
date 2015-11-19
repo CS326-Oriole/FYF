@@ -8,18 +8,30 @@
 	Enter a Chat Name
 	</h2>
 	<div class = "form">
-	<form class = "form" method = "post">
+	<form class = "form" >
 		<input type = "text" name ="chatName" placeholder = "Chat Name"><br>
-		<input type = "password" name = "pass" placeholder = "optional Password"> <br>
-		<button> Add chat</button>
+		<input type = "password" name = "pass" placeholder = "Optional Password"> <br>
+		<button type = "button" onclick = "myFunction()" >Create chat</button>
 		</form>
 		</div>
-
-		<P>
-		Create a chat by entering a name and optional password!
+		<br>
 		<p>
+		Create a chat by entering a name and optional password!
+		<br>
+		<p>
+		<script>
+		function myFunction(){
+		
+				$("form").append("<p>Button is clicked<p>");
+		}
+		</script>
+	
+	
+
+	 </div>
 	</div>
 </div>
+
 
 
 

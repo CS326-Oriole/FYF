@@ -1,0 +1,29 @@
+.chat{
+	text-align:center;
+	margin: auto;
+}
+.form {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	color : black;
+}
+
+.formContainer{
+	border: 4px #009933 solid;
+	border-radius: 10px;
+	margin-right: 50%;
+	margin-left: 50%;
+	color: 009933;
+}
+
+button{
+	margin-top:10px;
+}
+
+.chatContainer{
+	border:4px #009933 solid;
+	border-radius: 5px;
+	margin-right:10%;
+	margin-left:10%;
+	color:009933;
+}
