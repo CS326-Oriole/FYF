@@ -1,0 +1,11 @@
+.selection * {
+  padding: 30px;
+  text-align: center;
+}
+
+.subject {
+  margin: 10px;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border: 2px solid #009933;
+}
