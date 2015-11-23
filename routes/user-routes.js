@@ -1,7 +1,9 @@
 var express = require('express');
 
 // This gives us access to the user "model".
-var model = require('../lib/user');
+//var model = require('../lib/user');
+
+var model = require('../lib/model');
 
 // This creates an express "router" that allows us to separate
 // particular routes from the main application.
