@@ -16,7 +16,7 @@ router.get('/login', (req, res) => {
   var user = req.session.user;
 
   // Redirect to main if session and user is online:
-  if (user && online[user.name]) {    
+  if (user && online[user.name]) {
     res.redirect('/user/home'); //Changed from main to home
   }
   else {
@@ -218,12 +218,6 @@ router.get('/profile', function (req, res) {
 router.get('/about', function (req, res) {
   res.render('about', {
     title : 'About',
-  });
-});
-
-router.get('/team', function (req, res) {
-  res.render('team', {
-    title : 'Team',
   });
 });
 
