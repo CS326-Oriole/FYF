@@ -6,7 +6,9 @@
 
 ##Libraries
 mongoose - https://github.com/Automattic/mongoose, MongoDB object modeling designed to work in an asynchronous environment.
+
 bootstrap - https://github.com/twbs/bootstrap, The most popular HTML,CSS,and Javascript framework for designing websites.
+
 express - https://github.com/strongloop/express, Minimalist framework for developing web applications in node.
 
 ##Views
