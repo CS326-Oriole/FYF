@@ -230,9 +230,11 @@ router.post('/signup', function (req, res) {
     req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
     res.redirect('/user/login');
   }
+  /*
   else {
     //Check if username has already been taken. If so, flash appropriate message;
   }
+  */
   else {
     req.flash('login', 'Sign up successful!');
     res.redirect('/user/login');
