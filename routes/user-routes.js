@@ -11,7 +11,7 @@ var router = express.Router();
 
 // A list of users who are online:
 var online = require('../lib/online').online;
-
+var count =0;
 // Provides a login view
 router.get('/login', (req, res) => {
   // Grab the session if the user is logged in.
@@ -40,7 +40,8 @@ router.post('/auth', (req, res) => {
 
 
   if (anon) {
-    model.addAnon(function (error, person) {
+  	++count ;
+    model.addAnon(count,function (error, person) {
       // add the user to the map of online users:
       online[person.name] = person;
 
