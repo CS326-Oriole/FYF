@@ -1,4 +1,4 @@
-var model = require('./lib/model');
+var model = require('./lib/model2');
 
 
 /*
@@ -18,16 +18,46 @@ console.log('double yay');
 
 */
 
-
-model.userLookup('joe','joe', function(err,u){
+/*
+model.userLookup('joe','joe', function(err, u){
 
 	if(err){
-		console.log('error');
+	//	console.log(err.username, " ", err.password);
+		console.log("user not found");
 	}
 	else{
-		cosole.log(u[0]);
+
+		console.log(u.username, " " , u.password);
+	}
+});
+*/
+
+
+//model.userAdd('joe','joe');
+/*
+model.userAdd('joe2','joe2', function(err,u){
+	if(err){
+		console.log(err);
+	}
+	else{
+		console.log(u.username,'sucessful', u.password);
+	}
+});
+*/
+
+
+
+model.userLookup('joe2','joe2', function(err,u){
+
+	if(err){
+		console.log(err);
+	}
+	else{
+		console.log(u.username, " ", u.password);	
 	}
 });
 
+model.userAdd('joe2', 'joe', function(err,u){
 
-
+	if(err){
+		
