@@ -29,6 +29,10 @@ input {
   font-size:15px;
 }
 
+.modal-body input {
+  margin-top: 10px;
+}
+
 .footer {
   margin-top: 50px;
   text-align: center;
