@@ -27,7 +27,7 @@ login view- The login page for FYF.
 team view - Team view with some bios on the team and what each member will be contributing to the project.
 
 ##Statefulness
-Our application uses sessions for user/admin account login and log out. We also use sessions for anonymous user login where a person can use the features of the website without an account.  After sign in, the user will be redirected a new home page with categories and will be able to browse through the website without ending the user's session. The user can log out by hitting the log out button at the bottom of the page. The file server.js contains the algorithm to maintain statefulness for our application.
+Our application uses sessions for user/admin account login and log out. We also use sessions for anonymous user login where a person can use the features of the website without an account.  After sign in, the user will be redirected a new home page with categories and will be able to browse through the website without ending the user's session. The user can log out and end their session by hitting the log out button at the bottom of the page. The file server.js contains the algorithm and code to maintain statefulness for our application.
 https://github.com/CS326-Oriole/FYF/blob/master/server.js
 
 ##Persistence
