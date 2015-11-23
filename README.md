@@ -5,6 +5,9 @@
 ##How To Run
 
 ##Libraries
+mongoose - https://github.com/Automattic/mongoose, MongoDB object modeling designed to work in an asynchronous environment.
+bootstrap - https://github.com/twbs/bootstrap, The most popular HTML,CSS,and Javascript framework for designing websites.
+express - https://github.com/strongloop/express, Minimalist framework for developing web applications in node.
 
 ##Views
 about view - An about page for FYF that explains what it does and why people should use it.
