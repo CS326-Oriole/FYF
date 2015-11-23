@@ -2,27 +2,26 @@
   background-color: #05FF44;
   text-align: center;
   color: white;
+  height: 50px;
 }
 
 .banner img {
-  height: 100px;
-  width: 100px;
+  height: 50px;
+  width: 50px;
 }
 
 input {
 
 }
 
-.nav {
+#nav {
   list-style-type: none;
-  margin-top:85px;
-  padding: 0px;
+  margin-top: 12px;
 }
 
 .nav-option {
   display:inline;
   font-size:15px;
-  margin-right:10px;
 }
 
 .nav-separator {
@@ -30,11 +29,22 @@ input {
   font-size:15px;
 }
 
+.modal-body input {
+  margin-top: 10px;
+}
+
 .footer {
   margin-top: 50px;
   text-align: center;
 }
 
+#footer-row {
+  border: 2px solid #05FF44;
+  background-color: #05FF44;
+  border-radius: 20px;
+}
+
 .footer * {
   padding: 20px;
+  color: white;
 }
