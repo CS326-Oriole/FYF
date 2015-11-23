@@ -221,5 +221,24 @@ router.get('/about', function (req, res) {
   });
 });
 
+router.post('/signup', function (req, res) {
+  var name = req.body.name;
+  var pass = req.body.pass;
+  var confirm = req.body.confirm;
+
+  if (!name || !pass || !confirm) {
+    req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
+    res.redirect('/user/login');
+  }
+  else {
+    //Check if username has already been taken. If so, flash appropriate message;
+  }
+  else {
+    req.flash('login', 'Sign up successful!');
+    res.redirect('/user/login');
+  }
+
+
+});
 
 module.exports = router;
