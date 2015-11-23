@@ -233,17 +233,38 @@ router.post('/signup', function (req, res) {
     req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
     res.redirect('/user/login');
   }
-  /*
+  
   else {
+
+	model.lookup(name, pass, function(err, person) {
+		if(err){
+			var u = model.makeUser(name,pass,false);
+			model.add(u, function(e, retrn){
+				if(e){
+					req.flash('login','error adding');
+					res.redirect('/user/login');
+				}
+				else{
+					req.flash('home','user added');
+					res.redirect('/user/home');
+				}
+			});
+						
+		}
+		else{
+			req.flash('login','username already exits');
+			res.redirect('/user/login');
+		}	
     //Check if username has already been taken. If so, flash appropriate message;
-  }
-  */
+  });
+  /*
   else {
     req.flash('login', 'Sign up successful!');
     res.redirect('/user/login');
   }
+*/
 
-
+}
 });
 
 module.exports = router;
