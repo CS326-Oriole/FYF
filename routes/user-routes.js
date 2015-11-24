@@ -246,7 +246,7 @@ router.post('/signup', function (req, res) {
     req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
     res.redirect('/user/login');
   }
-  
+
   else {
 	var u = user(name,pass,false);
 	console.log(u);
@@ -262,9 +262,9 @@ router.post('/signup', function (req, res) {
 			}
 		}
 		else{
-			
-			req.flash('home', 'user added');
-			res.redirect('/user/home');
+
+			req.flash('login', 'Sign Up Complete!');
+			res.redirect('/user/login');
 		}
 	/*
 				if(e){
@@ -280,16 +280,16 @@ router.post('/signup', function (req, res) {
 			else{
 				req.flash('login', 'duplicate username');
 				res.redirect('/user/login');
-			}	
-						
+			}
+
 		}
-		
+
 		else{
 			console.log(person);
 			req.flash('login','username already exits');
 			res.redirect('/user/login');
 		}
-	
+
     //Check if username has already been taken. If so, flash appropriate message;
     */
   	});
