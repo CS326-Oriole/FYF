@@ -11,12 +11,14 @@ function user(name, pass, admin) {
       uid : ++nextUID,
       admin : admin
 	};
+
 }
-var j = 'joe is really really cool';
-var jj= '1';
 /*
+var j = 'joe is super cool';
+var jj= '1';
+
 //var u = user("joe2","joe",true);
-model.addChat(j, jj, function(err , usr){
+model.addChat(j, jj,'video games', function(err , usr){
 	if(err){
 		console.log(err);
 	}
@@ -26,7 +28,7 @@ model.addChat(j, jj, function(err , usr){
 });
 */
 
-model.lookupChat('1', function(err, chat) {	
+model.lookupChat('1','sports', function(err, chat) {	
 	if(err) {
 		console.log(err);
 	}
@@ -34,6 +36,7 @@ model.lookupChat('1', function(err, chat) {
 		//chat.forEach(function(chat1){
 		//	console.log(chat.field);
 		//});
+	//	console.log(chat.subject);
 		chat.forEach(function(string) {
 			console.log(string.field);
 		});
