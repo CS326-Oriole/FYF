@@ -5,11 +5,18 @@
 ##How To Run
 From the directory this file is saved in run
 
-npm install all the modules that are required have been saved so this will install all required modules
+By running npm install, you will be able to install all of the modules that are required to run this application.
 
-then run node server.js
+Afterwards, run node server.js to start the server.
 
-make sure to terminate the server from the command line before restarting.
+When first logging in, one can login as an anonymous user or signup as a user. Currently, there is no way to sign up as an administrator, so to login as an administartor, we have created the credentials:
+
+User: admin
+Pass: admin
+
+Please use this to access the admin page in the footer.
+
+Do not forget to terminate the server from the command line before restarting.
 
 ##Libraries
 mongoose - https://github.com/Automattic/mongoose, MongoDB object modeling designed to work in an asynchronous environment.
