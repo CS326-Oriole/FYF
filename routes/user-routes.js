@@ -88,7 +88,8 @@ router.post('/auth', (req, res) => {
             req.flash('login', error);
             res.redirect('/user/login');
           }
-          else {
+          else if (user) {
+						console.log(user);
             // add the user to the map of online users:
             online[user.name] = user;
 
@@ -99,6 +100,10 @@ router.post('/auth', (req, res) => {
             req.flash('home', 'Authentication Successful');
             res.redirect('/user/home');
           }
+					else {
+						req.flash('login', 'User does not exist');
+            res.redirect('/user/login');
+					}
         });
       }
     }
@@ -246,6 +251,10 @@ router.post('/signup', function (req, res) {
     req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
     res.redirect('/user/login');
   }
+	else if (pass !== confirm) {
+		req.flash('login', 'Sign up unsuccessful. Password and confirmation do not match.');
+    res.redirect('/user/login');
+	}
 
   else {
 	var u = user(name,pass,false);
