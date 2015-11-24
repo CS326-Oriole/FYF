@@ -1,3 +1,17 @@
+/* Fade In */
+h2 {
+  display: none;
+}
+
+.message {
+  display: none;
+}
+
+.selection {
+  display: none;
+}
+/* End of Fading */
+
 .selection * {
   padding: 30px;
   text-align: center;
