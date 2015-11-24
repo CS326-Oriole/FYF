@@ -32,6 +32,7 @@ router.get('/login', (req, res) => {
 
   // Redirect to main if session and user is online:
   if (user && online[user.name]) {
+		req.flash('home', 'Already logged in.');
     res.redirect('/user/home'); //Changed from main to home
   }
   else {

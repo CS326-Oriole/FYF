@@ -1,6 +1,7 @@
 .leftSide{
   border: 2px solid black;
   position: fixed;
+  display: none;
 }
 
 .rightSide{
