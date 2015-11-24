@@ -10,7 +10,7 @@
       <form class="form" method="post" action="/user/auth">
         <input type="text" name="name" placeholder="Username"> <br>
         <input type="password" name="pass" placeholder="Password"> <br>
-        <button>Login</button>
+        <button class="btn btn-success">Login</button>
       </form>
 
       <div>{{message}}</div>
@@ -22,7 +22,7 @@
     <p>
 
     <form method="post" action="/user/auth?anon=true">
-      <button>
+      <button class="btn btn-success">
         Sign in as an anonymous user to get started!
       </button>
     </form>
