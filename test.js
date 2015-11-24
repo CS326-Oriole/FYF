@@ -14,20 +14,22 @@ function user(name, pass, admin) {
 }
 
 
-var u = user("joe","joe",true);
+//var u = user("joe2","joe",true);
+model.makeUser =('joe','joe',true, function(err , usr);
 
+//console.log(u.name, ' ' , u.pass, ' ', u.admin);
 
-model.listAnon(function( err, person) {
+/*
+model.userAdd(u,function( err, person) {
 
 	if(err){
-		console.log("j");
+		console.log(err);
 	}
 	else{
 
 
-		person.forEach(function(err,doc) {
-		console.log(doc.name);
-		});
+		console.log(person);
 
 	}
 });
+*/

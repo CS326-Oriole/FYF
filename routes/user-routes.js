@@ -12,7 +12,20 @@ var router = express.Router();
 // A list of users who are online:
 var online = require('../lib/online').online;
 var count =0;
+var nextUID =0;
 // Provides a login view
+
+function user(name,pass,admin){
+	return{
+		name: name,
+		pass: pass,
+		uid: ++nextUID,
+		admin: admin
+		};
+}
+
+
+
 router.get('/login', (req, res) => {
   // Grab the session if the user is logged in.
   var user = req.session.user;
@@ -235,11 +248,25 @@ router.post('/signup', function (req, res) {
   }
   
   else {
-
-	model.lookup(name, pass, function(err, person) {
+	var u = user(name,pass,false);
+	console.log(u);
+	model.userAdd(u,function(err, person) {
 		if(err){
-			var u = model.makeUser(name,pass,false);
-			model.add(u, function(e, retrn){
+			if(err.code == 11000){
+				req.flash('login', "duplicate username");
+				res.redirect('/user/login');
+			}
+			else{
+				req.flash('login', 'error adding user');
+				res.redirect('/user/login');
+			}
+		}
+		else{
+			
+			req.flash('home', 'user added');
+			res.redirect('/user/home');
+		}
+	/*
 				if(e){
 					req.flash('login','error adding');
 					res.redirect('/user/login');
@@ -249,22 +276,24 @@ router.post('/signup', function (req, res) {
 					res.redirect('/user/home');
 				}
 			});
+			}
+			else{
+				req.flash('login', 'duplicate username');
+				res.redirect('/user/login');
+			}	
 						
 		}
+		
 		else{
+			console.log(person);
 			req.flash('login','username already exits');
 			res.redirect('/user/login');
-		}	
+		}
+	
     //Check if username has already been taken. If so, flash appropriate message;
-  });
-  /*
-  else {
-    req.flash('login', 'Sign up successful!');
-    res.redirect('/user/login');
+    */
+  	});
   }
-*/
-
-}
 });
 
 module.exports = router;
