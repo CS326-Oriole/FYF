@@ -212,3 +212,23 @@ app.listen(app.get('port'), () => {
 	console.log('Express started on http://localhost:' +
 	app.get('port') + '; press Ctrl-C to terminate');
 });
+
+var model = require('./lib/model');
+
+process.on('SIGINT',function() {
+	console.log("Caught interrupt signal");
+	console.log("Destroying anonymous collection");
+	model.destroy(function(err, resp) {
+		if(err){
+			console.log(err);
+			process.exit(0);
+		}
+		else{
+			console.log('destroyed');
+			process.exit(0);
+		}
+	});
+	
+});
+
+
