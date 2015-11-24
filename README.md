@@ -53,3 +53,9 @@ https://github.com/CS326-Oriole/FYF/blob/master/server.js
 
 ##Persistence
 
+FyF uses a database to store records of user accounts, anonymous users, and chat logs. FyF adds information to the user accounts schema when accounts are created through the sign up feature. These are savd permanently so a user can log in at any time even after the server needs to be restarted. The records of user accounts are also used for log in verification to make sure usernames and passwords match up. The user accounts records are also used for account creation to ensure usernames are unique. The anonymous users records is kept to continuously create new anonymous accounts when new anonymous users try to access the application. The anonymous user table is emptied when the server is restarted so that when it is restarted the incremental value used to create new usernames is reset and this way the anonymous user table will not have duplicate entries. The chat logs table keeps track of chats for populating the chat view with accurate chats and to provide users with logs of chats they have particpated in. This table also provides a way for admins to review chats that have been flagged as inappropriate or view users chats for users that have been flagged as disruptive.
+
+Our model.js file ( located at this link https://github.com/CS326-Oriole/FYF/tree/master/lib ) creates the functions necessary for adding and looking up users, anonymous users, and chats. These functions are exported to be used in the rest of our application such as in the user-routes.js file (located at this link https://github.com/CS326-Oriole/FYF/tree/master/routes ).  
+
+
+
