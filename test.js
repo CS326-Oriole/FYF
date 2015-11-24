@@ -12,14 +12,22 @@ function user(name, pass, admin) {
       admin : admin
 	};
 }
-
+var j = 'joe is cool';
+var jj= '1';
 
 //var u = user("joe2","joe",true);
-model.makeUser =('joe','joe',true, function(err , usr);
-
+model.addChat(j, jj, function(err , usr){
+	if(err){
+		console.log(err);
+	}
+	else{
+		console.log(usr);
+	}
+});
 //console.log(u.name, ' ' , u.pass, ' ', u.admin);
 
 /*
+var u = user('dan','dan',false);
 model.userAdd(u,function( err, person) {
 
 	if(err){
@@ -33,3 +41,4 @@ model.userAdd(u,function( err, person) {
 	}
 });
 */
+
