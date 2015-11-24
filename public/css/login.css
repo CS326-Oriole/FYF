@@ -15,7 +15,9 @@
   margin-right: 25%;
   margin-left: 25%;
   color: #009933;
+  display: none;
 }
+
 
 button {
   margin-top:10px;
