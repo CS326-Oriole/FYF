@@ -223,13 +223,17 @@ router.get('/profile', function (req, res) {
   }
   else {
     var admin = "Regular User";
+		var username = user.username;
 
     if (user.admin === true) {
       admin = "Administrator";
     }
+		else if (!username) {
+			username = "Anonymous User";
+		}
 
     res.render('profile', {
-      name: user.username,
+      name: username,
       admin: admin
     });
   }
