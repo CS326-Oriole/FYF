@@ -4,6 +4,10 @@
   display: none;
 }
 
+.leftSide * {
+  margin: 5px;
+}
+
 .rightSide{
   margin-left: 450px;
 }
