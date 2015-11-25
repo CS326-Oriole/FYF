@@ -64,5 +64,7 @@ FyF uses a database to store records of user accounts, anonymous users, and chat
 
 Our model.js file ( located at this link https://github.com/CS326-Oriole/FYF/tree/master/lib ) creates the functions necessary for adding and looking up users, anonymous users, and chats. These functions are exported to be used in the rest of our application such as in the user-routes.js file (located at this link https://github.com/CS326-Oriole/FYF/tree/master/routes ).  
 
+![alt tag](http://imgur.com/Wqy0oND)
+
 
 
