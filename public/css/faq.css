@@ -1,6 +1,7 @@
 .questionContainer {
 	text-align: center;
 	margin: 9%;
+	display: none;
 }
 
 .question1 {

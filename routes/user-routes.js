@@ -258,51 +258,24 @@ router.post('/signup', function (req, res) {
 	}
 
   else {
-	var u = user(name,pass,false);
-	console.log(u);
-	model.userAdd(u,function(err, person) {
-		if(err){
-			if(err.code == 11000){
-				req.flash('login', "duplicate username");
-				res.redirect('/user/login');
-			}
-			else{
-				req.flash('login', 'error adding user');
-				res.redirect('/user/login');
-			}
-		}
-		else{
-
-			req.flash('login', 'Sign Up Complete!');
-			res.redirect('/user/login');
-		}
-	/*
-				if(e){
-					req.flash('login','error adding');
+		var u = user(name,pass,false);
+		console.log(u);
+		model.userAdd(u,function(err, person) {
+			if(err){
+				if(err.code == 11000){
+					req.flash('login', "Error: Username taken.");
 					res.redirect('/user/login');
 				}
 				else{
-					req.flash('home','user added');
-					res.redirect('/user/home');
+					req.flash('login', 'Error: Internal Database Error');
+					res.redirect('/user/login');
 				}
-			});
 			}
 			else{
-				req.flash('login', 'duplicate username');
+				req.flash('login', 'Sign Up Complete!');
 				res.redirect('/user/login');
 			}
-
-		}
-
-		else{
-			console.log(person);
-			req.flash('login','username already exits');
-			res.redirect('/user/login');
-		}
-
-    //Check if username has already been taken. If so, flash appropriate message;
-    */
-  	});
+	  });
   }
 });
 
