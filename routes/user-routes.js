@@ -222,14 +222,14 @@ router.get('/profile', function (req, res) {
     res.redirect('/user/login');
   }
   else {
-    var admin = "";
+    var admin = "Regular User";
 
     if (user.admin === true) {
       admin = "Administrator";
     }
 
     res.render('profile', {
-      name: user.name,
+      name: user.username,
       admin: admin
     });
   }

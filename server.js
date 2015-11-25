@@ -132,25 +132,13 @@ app.get('/about', (req, res) => {
 	});
 });
 
-
-
-app.get('/admin', (req, res) => {
-	res.render('admin', {
-	});
-});
-
-app.get('/chat', (req, res) => {
-	res.render('chat', {
+app.get('/faq', (req, res) => {
+	res.render('faq', {
 	});
 });
 
 app.get('/login', (req, res) => {
 	res.render('login', {
-	});
-});
-
-app.get('/profile', (req, res) => {
-	res.render('profile', {
 	});
 });
 
@@ -228,7 +216,5 @@ process.on('SIGINT',function() {
 			process.exit(0);
 		}
 	});
-	
+
 });
-
-
