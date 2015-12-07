@@ -196,7 +196,7 @@ app.use(internalServerError500);
 // application variable 'port' (which was set above). The second
 // parameter is a function that gets invoked after the application is
 // up and running.
-app.listen(app.get('port'), () => {
+var server = app.listen(app.get('port'), () => { //the server var is only used by socket.io
 	console.log('Express started on http://localhost:' +
 	app.get('port') + '; press Ctrl-C to terminate');
 });
@@ -217,4 +217,14 @@ process.on('SIGINT',function() {
 		}
 	});
 
+});
+
+//socket.io stuff starts here
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+	console.log("\nCONNECTION FOUND\n");
+  socket.on('chat message', function(msg){
+    io.emit('chat message', msg);
+  });
 });
