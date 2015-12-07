@@ -224,7 +224,8 @@ var io = require('socket.io')(server);
 
 io.on('connection', function(socket){
 	console.log("\nCONNECTION FOUND\n");
-  socket.on('chat_message', function(msg){
-    io.emit('chat_message', msg);
-  });
+	//whenever a chat_message msg is recieved, send it back
+	socket.on('chat_message', function(msg){
+			io.emit('chat_message', msg);
+	});
 });
