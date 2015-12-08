@@ -15,12 +15,15 @@ var count =0;
 var nextUID =0;
 // Provides a login view
 
-function user(name,pass,admin){
+function user(name,pass,admin,email,phone,interests){
 	return{
 		name: name,
 		pass: pass,
 		uid: ++nextUID,
-		admin: admin
+		admin: admin,
+    email: email,
+    phone: phone,
+    interests: interests
 		};
 }
 
@@ -224,6 +227,9 @@ router.get('/profile', function (req, res) {
   else {
     var admin = "Regular User";
 		var username = user.username;
+    var phone = user.phone;
+    var email = user.email;
+    var interests = user.interests;
 
     if (user.admin === true) {
       admin = "Administrator";
@@ -234,7 +240,11 @@ router.get('/profile', function (req, res) {
 
     res.render('profile', {
       name: username,
-      admin: admin
+      admin: admin,
+      phone: phone,
+      email:email,
+      interests: interests
+
     });
   }
 
@@ -251,8 +261,11 @@ router.post('/signup', function (req, res) {
   var name = req.body.name;
   var pass = req.body.pass;
   var confirm = req.body.confirm;
+  var email = req.body.email;
+  var interests = req.body.interests;
+  var phone = req.body.phone;
 
-  if (!name || !pass || !confirm) {
+  if (!name || !pass || !confirm || !email || !interests || !phone) {
     req.flash('login', 'Sign up unsuccessful. Please provide valid credentials.');
     res.redirect('/user/login');
   }
@@ -262,7 +275,7 @@ router.post('/signup', function (req, res) {
 	}
 
   else {
-		var u = user(name,pass,false);
+		var u = user(name,pass,false,email,phone,interests);
 		console.log(u);
 		model.userAdd(u,function(err, person) {
 			if(err){
