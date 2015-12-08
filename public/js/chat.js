@@ -1,5 +1,7 @@
 var count = 1;
 
+var socket = io();
+
 $(".leftSide").fadeIn(500);
 
 $(".addChat button").click(function() {
@@ -12,7 +14,7 @@ var socket = io();
 
 //whenever sendMessage is called, send the value of the element called 'input' to chat_message
 function sendMessage() {
-  socket.emit('chat_message', $('#input').val());
+  socket.emit('chat_message', getUserName() + ": " + $('#input').val());
   $('#input').val('');
   return false;
 };
@@ -41,6 +43,9 @@ function getUserName() {
   return "username"
 };
 
-//TODO: send messages from certain chat to certain chat only (use socket's rooms),
-//      add username/time to message
-//      uname connected/uname disconnected messages
+/*
+ * To differ the chats by rooms when they're all in the same window like this, do the following:
+ * Each time you join a room, call the socket.join function on that room name
+ * Then, instead of just sending the message, send the message and the name of the room the message came from
+ * then append the message to the given room, instead of any room (requires the chat windows to be named properly)
+*/
