@@ -25,7 +25,7 @@ function sendMessage() {
 
 //whenever a chat_message is recieved, append it to the element called 'chat_window'
 socket.on('chat_message', function(msg) {
-  $('#chat_window').append($('<li>').text(msg));
+  $('#chat_window').append($('<li>').text(msg.m));
 });
 
 function format(message, rm, username) {
