@@ -4,6 +4,8 @@ var socket = io();
 
 $(".leftSide").fadeIn(500);
 
+//TODO: there needs to be a socket.join("room_name") here, based off of the room name entered
+//      also, the name of the chat window needs to be set properly, and the call to sendMessage() needs to be sendMessage(room_name)
 $(".addChat button").click(function() {
   $(".chatContainer").append('<div class="chatBox col-md-3" style="display: none;"> <div class="conversation"> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage()">Send</button><br> </div>');
   count++;
@@ -13,8 +15,10 @@ $(".addChat button").click(function() {
 var socket = io();
 
 //whenever sendMessage is called, send the value of the element called 'input' to chat_message
+//TODO: "chat_window" should be the name of the chat window - maybe pass this to sendMessage from the button click?
 function sendMessage() {
-  socket.emit('chat_message', getUserName() + ": " + $('#input').val());
+  var to_send = format($('#input').val(), "chat_window", getUserName());
+  socket.emit('chat_message', to_send);
   $('#input').val('');
   return false;
 };
@@ -23,6 +27,14 @@ function sendMessage() {
 socket.on('chat_message', function(msg) {
   $('#chat_window').append($('<li>').text(msg));
 });
+
+function format(message, rm, username) {
+  return {
+    m: message,
+    room: rm,
+    uname: username
+  }
+}
 
 //////////////////////////////////////////////////
 //Skeleton/unfinished functions below
