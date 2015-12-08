@@ -10,9 +10,8 @@ $(".addChat button").click(function() {
   $(".chatContainer").append('<div class="chatBox col-md-3" style="display: none;"> <div class="conversation"> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage()">Send</button><br> </div>');
   count++;
   $(".chatBox:nth-child(" + count + ")").fadeIn(500);
-});
 
-var socket = io();
+});
 
 //whenever sendMessage is called, send the value of the element called 'input' to chat_message
 //TODO: "chat_window" should be the name of the chat window - maybe pass this to sendMessage from the button click?
