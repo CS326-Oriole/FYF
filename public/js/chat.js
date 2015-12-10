@@ -7,7 +7,9 @@ $(".leftSide").fadeIn(500);
 //TODO: there needs to be a socket.join("room_name") here, based off of the room name entered
 //      also, the name of the chat window needs to be set properly, and the call to sendMessage() needs to be sendMessage(room_name)
 $(".addChat button").click(function() {
-  $(".chatContainer").append('<div class="chatBox col-md-3" style="display: none;"> <div class="conversation"> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage()">Send</button><br> </div>');
+  var chatName = document.getElementById('chatName');
+  var chatId = 'id=chat-' + count;
+  $(".chatContainer").append('<div class="chatBox col-md-3"' + chatId + ' style="display: none;"> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage(' + chatId + ')">Send</button><br> </div>');
   count++;
   $(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
