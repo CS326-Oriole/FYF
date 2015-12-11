@@ -27,7 +27,21 @@ model.addChat(j, jj,'video games', function(err , usr){
 	}
 });
 */
+<<<<<<< HEAD
 /*
+=======
+model.countAnon(function(err,result){
+	if(err){
+		console.log('ERROR HAPPENED');
+	}
+
+	else {
+		console.log("RESULT PRINTED");
+		console.log(result);
+	}
+});
+
+>>>>>>> cd7515c40f997a842834421d85ef2ff0624db5d3
 model.lookupChat('1','sports', function(err, chat) {	
 	if(err) {
 		console.log(err);

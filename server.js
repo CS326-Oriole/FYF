@@ -126,6 +126,9 @@ app.get('/', (req, res) => {
 });
 
 // Dynamic About View
+app.get('/profile', (req,res) =>{
+	res.redirect('/user/profile');
+});
 
 app.get('/about', (req, res) => {
 	res.render('about', {
@@ -196,7 +199,7 @@ app.use(internalServerError500);
 // application variable 'port' (which was set above). The second
 // parameter is a function that gets invoked after the application is
 // up and running.
-app.listen(app.get('port'), () => {
+var server = app.listen(app.get('port'), () => { //the server var is only used by socket.io
 	console.log('Express started on http://localhost:' +
 	app.get('port') + '; press Ctrl-C to terminate');
 });
@@ -217,4 +220,15 @@ process.on('SIGINT',function() {
 		}
 	});
 
+});
+
+//socket.io stuff starts here
+var io = require('socket.io')(server);
+
+io.on('connection', function(socket){
+	console.log("\nCONNECTION FOUND\n");
+	//whenever a chat_message msg is recieved, send it back
+	socket.on('chat_message', function(msg){
+			io.emit('chat_message', msg);
+	});
 });
