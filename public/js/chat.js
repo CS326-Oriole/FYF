@@ -17,7 +17,7 @@ $(".addChat button").click(function() {
 
 //whenever sendMessage is called, send the value of the element called 'input' to chat_message
 //TODO: "chat_window" should be the name of the chat window - maybe pass this to sendMessage from the button click?
-function sendMessage() {
+function sendMessage(chat_name) {
   var to_send = format($('#input').val(), "chat_window", getUserName());
   socket.emit('chat_message', to_send);
   $('#input').val('');
