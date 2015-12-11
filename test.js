@@ -15,10 +15,12 @@ function user(name, pass, admin) {
 }
 
 var j = 'lets get this chat to work';
+var y = 'yeah great idea';
 var jj= '1';
-/*
+
 //var u = user("joe2","joe",true);
-model.addChat(j, '69','video games', 'xbox one', 'yolo', function(err , usr){
+/*
+model.addChat(y, '70','video games', 'xbox one', 'yolo', function(err , usr){
 	if(err){
 		console.log(err);
 	}
@@ -43,17 +45,19 @@ model.countAnon(function(err,result){
 
 >>>>>>> cd7515c40f997a842834421d85ef2ff0624db5d3
 */
-model.lookupChat('69','video games','xbox one', function(err, chat) {	
+var th ;
+model.lookupChat('video games','xbox one', function(err, chat) {	
 	if(err) {
 		console.log(err);
 	}
 	else{
-	//	chat.forEach(function(chat1){
-	//		console.log(chat.field);
-	//	});
-	//	console.log(chat.subject);
-	
-			console.log(chat.field);
+		for(var key in chat){
+
+			console.log(chat[key]);
+		}
+		cb(undefined, "yay");
+		
+	//		console.log(chat.foreach(chat.field));
 		
 		//console.log(chat[0]);
 		//console.log(chat[1].field);

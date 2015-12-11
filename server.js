@@ -230,6 +230,9 @@ io.on('connection', function(socket){
 	//whenever a chat_message msg is recieved, send it back
 	socket.on('chat_message', function(msg){
 			io.emit('chat_message', msg);
+
+			// there should be an id with this
+			/*
 			model.addChat(msg.m, 1 , msg.sub, function(err,cb){
 				if(err){
 					console.log("error adding to db");
@@ -239,6 +242,17 @@ io.on('connection', function(socket){
 				}
 			});
 
-
+			model.lookupChat(msg.m, msg.sub, function( err,chat){
+				if(err){
+					console.log(err);
+				}
+				else{
+					chat.forEach(function(chat1){
+						io.emit('chat_message', chat1.field);
+					});
+				}
+	
+			
+			*/
 	});
 });
