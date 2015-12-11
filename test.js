@@ -27,7 +27,7 @@ model.addChat(j, jj,'video games', function(err , usr){
 	}
 });
 */
-
+/*
 model.lookupChat('1','sports', function(err, chat) {	
 	if(err) {
 		console.log(err);
@@ -44,11 +44,11 @@ model.lookupChat('1','sports', function(err, chat) {
 		//console.log(chat[1].field);
 	}
 });
-
+ */
 //console.log(u.name, ' ' , u.pass, ' ', u.admin);
 
-/*
-var u = user('dan','dan',false);
+
+var u = user('joe','joe',true);
 model.userAdd(u,function( err, person) {
 
 	if(err){
@@ -61,5 +61,5 @@ model.userAdd(u,function( err, person) {
 
 	}
 });
-*/
+
 
