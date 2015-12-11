@@ -1,4 +1,4 @@
-var count = 1;
+var count = document.getElementById('chatId').value;
 
 var socket = io();
 
@@ -60,7 +60,7 @@ function format(message, rm, username) {
     m: message,
     room: rm,
     uname: username,
-    category: category    
+    category: category
   }
 }
 
