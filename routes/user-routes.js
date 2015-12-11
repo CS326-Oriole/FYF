@@ -71,7 +71,7 @@ router.post('/auth', (req, res) => {
       res.redirect('/user/home');
     });
     });
-    
+
   }
 
   else {
@@ -202,28 +202,26 @@ router.get('/chat', function(req, res) {
 	    res.render('404');
     }
     else {
-        if (result ==="videogames"){
-            res.render('videogames', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-        if (result ==="sports"){
-            res.render('sports', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-        if (result ==="hobbies"){
-            res.render('hobbies', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-    }
-  }
+       res.render('chat',{
+        title : result + 'Chat',
+				category: result
+       });
+     }
+}
 });
+router.post('/addChat',function(req,res){
+  console.log('SENT TO ADD CHAT');
+  console.log(req.body.chatName);
+  model.addChat(req.body.html,req.body.chatId,req.body.category,req.body.chatName,undefined, function(err,save){
+    if(err){
+      console.log('ERROR SAVING');
+    }
+    else console.log('SAVED');
+  });
 
+
+
+});
 router.get('/FAQ', function (req, res) {
   res.render('FAQ', {
     title : 'FAQ',
