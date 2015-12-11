@@ -1,10 +1,11 @@
-var count = document.getElementById('chatId').value;
+var count = document.getElementById('chatId').innerText;
 
 var socket = io();
 
 $(".leftSide").fadeIn(500);
 
-var category = document.getElementById('subject').value;
+var category = document.getElementById('subject').innerText;
+console.log(category);
 
 //TODO: there needs to be a socket.join("room_name") here, based off of the room name entered
 //      also, the name of the chat window needs to be set properly, and the call to sendMessage() needs to be sendMessage(room_name)

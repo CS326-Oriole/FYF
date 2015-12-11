@@ -71,7 +71,7 @@ router.post('/auth', (req, res) => {
       res.redirect('/user/home');
     });
     });
-    
+
   }
 
   else {
@@ -210,6 +210,9 @@ router.get('/chat', function(req, res) {
         title : result + 'Chat',
         chatId : count
       
+
+				category: result
+
        });
      }
      });
