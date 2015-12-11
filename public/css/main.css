@@ -34,7 +34,9 @@ input {
 }
 
 .footer {
-  margin-top: 50px;
+  position: fixed;
+  bottom: 30px;
+  width : 100%;
   text-align: center;
 }
 
