@@ -3,6 +3,9 @@ var count = document.getElementById('chatId').innerText;
 if (!count) {
   count = 0;
 }
+else {
+  count = count + 1;
+}
 
 var socket = io();
 
