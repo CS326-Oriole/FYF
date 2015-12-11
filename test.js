@@ -46,11 +46,12 @@ model.countAnon(function(err,result){
 >>>>>>> cd7515c40f997a842834421d85ef2ff0624db5d3
 */
 var th ;
-model.lookupChat('video games','xbox one', function(err, chat) {	
+model.lookupChat('videogames','asdf', function(err, chat) {	
 	if(err) {
 		console.log(err);
 	}
 	else{
+		/*
 		for(var key in chat){
 
 			console.log(chat[key]);
@@ -58,6 +59,9 @@ model.lookupChat('video games','xbox one', function(err, chat) {
 		cb(undefined, "yay");
 		
 	//		console.log(chat.foreach(chat.field));
+		*/
+	var len = chat.length;	
+		console.log(chat);
 		
 		//console.log(chat[0]);
 		//console.log(chat[1].field);
