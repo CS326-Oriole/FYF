@@ -251,8 +251,11 @@ io.on('connection', function(socket){
 						io.emit('chat_message', chat1.field);
 					});
 				}
-	
-			
+
+
 			*/
+	});
+	socket.on('chat_created', function() {
+		io.emit('increment_count');
 	});
 });

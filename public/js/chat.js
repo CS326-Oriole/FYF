@@ -1,11 +1,6 @@
 var count = document.getElementById('chatId').innerText;
 
-if (!count) {
-  count = 0;
-}
-else {
-  count = count + 1;
-}
+console.log("intial count is: " + count);
 
 var socket = io();
 
@@ -46,7 +41,7 @@ $(".addChat button").click(function() {
 
   console.log(str);
   $(".chatContainer").append(str);
-  count++;
+  socket.emit('chat_created');
   $(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
 });
@@ -66,6 +61,11 @@ socket.on('chat_message', function(msg) {
     $("#" + msg.room).append($('<li>').text(msg.m));
   }
 });
+
+socket.on('increment_count', function() {
+  count++;
+  console.log("\nincremented count to: " + count + "\n")
+})
 
 function format(message, rm, username) {
   return {
