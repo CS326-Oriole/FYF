@@ -71,7 +71,7 @@ router.post('/auth', (req, res) => {
       res.redirect('/user/home');
     });
     });
-    
+
   }
 
   else {
@@ -203,7 +203,8 @@ router.get('/chat', function(req, res) {
     }
     else {
        res.render('chat',{
-        title : result + 'Chat'
+        title : result + 'Chat',
+				category: result
        });
      }
 }
