@@ -57,3 +57,26 @@ router.get('/comingsoon', (req, res) => {
     res.render('comingsoon', {});
   }
 });
+
+router.get('/reportedchats', (req, res) => {
+  var user = req.session.user;
+
+  //Check that user is logged in
+  if(!user) {
+    req.flash('login', 'not logged in');
+    res.redirect('/user/login');
+    //Check that user session hasn't expired
+  } else if(user && online[user]) {
+    req.flash('login', 'login expired');
+    delete req.session.user;
+    res.redirect('/user/login');
+    //Check that user is admin
+  } else if(!user.admin) {
+    req.flash('home', 'you need admin credentials to access this route');
+    res.redirect('/user/home');
+  } else {
+    var message = req.flash('reportedchats') || '';
+    //TODO: Add connection to database, populate fields
+    res.render('reportedchats', {});
+  }
+});
