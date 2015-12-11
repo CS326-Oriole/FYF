@@ -18,10 +18,14 @@ h2 {
 }
 
 .subject {
-  margin: 10px;
   padding-top: 30px;
   padding-bottom: 30px;
-  border: 2px solid #009933;
+}
+
+.subject img {
+  position: : center;
+  height: 250px;
+  width: 350px;
 }
 
 .subject:hover {
