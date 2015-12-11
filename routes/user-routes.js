@@ -208,7 +208,7 @@ router.get('/chat', function(req, res) {
       
        res.render('chat',{
         title : result + 'Chat',
-        chatId : count
+        chatId : count,
       
 
 				category: result
