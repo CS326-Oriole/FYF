@@ -17,6 +17,9 @@ $(".addChat button").click(function() {
   var chatId = 'id=chat-' + count;
   var window_id = "id='" + category + "-chat_window-" + count + "'";
   var input_id = "id='input-" + count + "'";
+  alert(chatId);
+  alert(window_id);
+  alert(input_id);
   var str = '<div class="chatBox col-md-3"' + chatId + ' style="display: none;"> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul ' + window_id + '"></ul> </div> <input ' + input_id + ' placeholder = "Type your message here!"><button onClick="sendMessage(' + count + ')">Send</button><br> </div>';
 
  var chatInfo ={
