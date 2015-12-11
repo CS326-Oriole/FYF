@@ -4,7 +4,7 @@
 // (2) handlebars - this provides the handlebars templating framework
 var express    = require('express');
 var handlebars = require('express-handlebars');
-
+var model = require('./lib/model');
 // The body parser is used to parse the body of an HTTP request.
 var bodyParser = require('body-parser');
 
@@ -230,5 +230,15 @@ io.on('connection', function(socket){
 	//whenever a chat_message msg is recieved, send it back
 	socket.on('chat_message', function(msg){
 			io.emit('chat_message', msg);
+			model.addChat(msg.m, 1 , msg.sub, function(err,cb){
+				if(err){
+					console.log("error adding to db");
+				}
+				else{
+					console.log("added chat to db");
+				}
+			});
+
+
 	});
 });

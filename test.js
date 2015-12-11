@@ -13,12 +13,12 @@ function user(name, pass, admin) {
 	};
 
 }
-/*
-var j = 'joe is super cool';
-var jj= '1';
 
+var j = 'lets get this chat to work';
+var jj= '1';
+/*
 //var u = user("joe2","joe",true);
-model.addChat(j, jj,'video games', function(err , usr){
+model.addChat(j, '69','video games', 'xbox one', 'yolo', function(err , usr){
 	if(err){
 		console.log(err);
 	}
@@ -27,7 +27,7 @@ model.addChat(j, jj,'video games', function(err , usr){
 	}
 });
 */
-<<<<<<< HEAD
+//<<<<<<< HEAD
 /*
 =======
 model.countAnon(function(err,result){
@@ -42,26 +42,27 @@ model.countAnon(function(err,result){
 });
 
 >>>>>>> cd7515c40f997a842834421d85ef2ff0624db5d3
-model.lookupChat('1','sports', function(err, chat) {	
+*/
+model.lookupChat('69','video games','xbox one', function(err, chat) {	
 	if(err) {
 		console.log(err);
 	}
 	else{
-		//chat.forEach(function(chat1){
-		//	console.log(chat.field);
-		//});
+	//	chat.forEach(function(chat1){
+	//		console.log(chat.field);
+	//	});
 	//	console.log(chat.subject);
-		chat.forEach(function(string) {
-			console.log(string.field);
-		});
+	
+			console.log(chat.field);
+		
 		//console.log(chat[0]);
 		//console.log(chat[1].field);
 	}
 });
- */
+ 
 //console.log(u.name, ' ' , u.pass, ' ', u.admin);
 
-
+/*
 var u = user('joe','joe',true);
 model.userAdd(u,function( err, person) {
 
@@ -76,4 +77,4 @@ model.userAdd(u,function( err, person) {
 	}
 });
 
-
+*/
