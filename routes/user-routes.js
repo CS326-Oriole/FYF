@@ -199,12 +199,25 @@ router.get('/chat', function(req, res) {
 	    res.render('404');
     }
     else {
-      res.render('chat', {
-        title : result + 'Chat',
-        category: result
-      });
+        if (result ==="videogames"){
+            res.render('videogames', {
+            title : result + 'Chat',
+            category: result
+        });
+      }
+        if (result ==="sports"){
+            res.render('sports', {
+            title : result + 'Chat',
+            category: result
+        });
+      }
+      if (result ==="hobbies"){
+            res.render('hobbies', {
+            title : result + 'Chat',
+            category: result
+        });
+      }
     }
-
   }
 });
 
