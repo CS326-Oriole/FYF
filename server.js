@@ -126,6 +126,9 @@ app.get('/', (req, res) => {
 });
 
 // Dynamic About View
+app.get('/profile', (req,res) =>{
+	res.redirect('/user/profile');
+});
 
 app.get('/about', (req, res) => {
 	res.render('about', {
