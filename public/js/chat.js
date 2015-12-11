@@ -1,5 +1,9 @@
 var count = document.getElementById('chatId').innerText;
 
+if (!count) {
+  count = 0;
+}
+
 var socket = io();
 
 $(".leftSide").fadeIn(500);
@@ -33,6 +37,8 @@ $(".addChat button").click(function() {
   url:"./addChat",
 
 });
+
+  console.log(str);
   $(".chatContainer").append(str);
   count++;
   $(".chatBox:nth-child(" + count + ")").fadeIn(500);
