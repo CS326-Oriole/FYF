@@ -1,32 +1,38 @@
 .banner {
   background-color: #05FF44;
-  text-align: center;
+  width: 100%;
+  display: block;
   color: white;
   height: 50px;
+  text-align: center;
 }
 
 .banner img {
   height: 50px;
   width: 50px;
+  float: left;
 }
 
-input {
-
+.banner span {
+  color: white;
+  font-size: 20px;
 }
 
-#nav {
-  list-style-type: none;
-  margin-top: 12px;
+.nav {
+  display: inline-block;
+  float: right;
+  margin-right: 10px;
 }
 
-.nav-option {
-  display:inline;
-  font-size:15px;
+.nav ul li{
+  list-style: none;
+  color: white;
+  float: left;
+  margin: 10px;
 }
 
-.nav-separator {
-  display:inline;
-  font-size:15px;
+.nav * {
+  color: white;
 }
 
 .modal-body input {
