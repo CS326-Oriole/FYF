@@ -52,7 +52,9 @@ function sendMessage(chat_id) {
 
 //whenever a chat_message is recieved, append it to the element called 'chat_window'
 socket.on('chat_message', function(msg) {
-  $("#" + msg.room).append($('<li>').text(msg.m));
+  if(msg.category===category) {
+    $("#" + msg.room).append($('<li>').text(msg.m));
+  }
 });
 
 function format(message, rm, username) {
