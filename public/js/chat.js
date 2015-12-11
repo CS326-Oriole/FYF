@@ -4,6 +4,8 @@ var socket = io();
 
 $(".leftSide").fadeIn(500);
 
+var category = document.getElementById('subject');
+
 //TODO: there needs to be a socket.join("room_name") here, based off of the room name entered
 //      also, the name of the chat window needs to be set properly, and the call to sendMessage() needs to be sendMessage(room_name)
 $(".addChat button").click(function() {
@@ -11,7 +13,7 @@ $(".addChat button").click(function() {
   var chatNameValue = chatName.value;
 
   var chatId = 'id=chat-' + count;
-  var window_id = "id='chat_window-" + count + "'";
+  var window_id = "id='" + category + "-chat_window-" + count + "'";
   var input_id = "id='input-" + count + "'";
 
   var url = document.location.href;
@@ -57,7 +59,8 @@ function format(message, rm, username) {
   return {
     m: message,
     room: rm,
-    uname: username
+    uname: username,
+    category: category    
   }
 }
 
