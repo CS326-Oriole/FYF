@@ -57,8 +57,9 @@ router.post('/auth', (req, res) => {
 
 
   if (anon) {
-  	++count ;
-    model.addAnon(count,function (error, person) {
+  	/*++count ;
+*/    model.countAnon(function(err,count){
+         model.addAnon(count+1,function (error, person) {
       // add the user to the map of online users:
       online[person.name] = person;
 
@@ -68,7 +69,9 @@ router.post('/auth', (req, res) => {
       // Pass a message to main:
       req.flash('home', 'Anonymous Login Successful');
       res.redirect('/user/home');
-    })
+    });
+    });
+    
   }
 
   else {
@@ -211,7 +214,7 @@ router.get('/chat', function(req, res) {
             category: result
         });
       }
-      if (result ==="hobbies"){
+        if (result ==="hobbies"){
             res.render('hobbies', {
             title : result + 'Chat',
             category: result
