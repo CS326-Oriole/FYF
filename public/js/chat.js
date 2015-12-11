@@ -8,7 +8,26 @@ $(".leftSide").fadeIn(500);
 //      also, the name of the chat window needs to be set properly, and the call to sendMessage() needs to be sendMessage(room_name)
 $(".addChat button").click(function() {
   var chatName = document.getElementById('chatName');
+  var chatNameValue = chatName.value;
   var chatId = 'id=chat-' + count;
+  var url = document.location.href;
+  var getQuery = url.split('?')[1];
+  var category = getQuery.split('=')[1];
+  var str = '<div class="chatBox col-md-3"' + chatId + ' style="display: none;"> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage(' + chatId + ')">Send</button><br> </div>'
+ var chatInfo ={
+    chatId : chatId,
+    category : category,
+    html : str,
+    chatName : chatNameValue
+ };
+ $.ajax({
+  contentType : "application/json",
+  dataType: "json",
+  data: JSON.stringify(chatInfo),
+  type: 'POST',
+  url:"./addChat",
+
+});
   $(".chatContainer").append('<div class="chatBox col-md-3"' + chatId + ' style="display: none;"> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul id="chat_window"></ul> </div> <input id="input" placeholder = "Type your message here!"><button onClick="sendMessage(' + chatId + ')">Send</button><br> </div>');
   count++;
   $(".chatBox:nth-child(" + count + ")").fadeIn(500);

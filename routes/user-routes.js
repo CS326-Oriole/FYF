@@ -223,7 +223,19 @@ router.get('/chat', function(req, res) {
     }
   }
 });
+router.post('/addChat',function(req,res){
+  console.log('SENT TO ADD CHAT');
+  console.log(req.body.chatName);
+  model.addChat(req.body.html,req.body.chatId,req.body.category,req.body.chatName,undefined, function(err,save){
+    if(err){
+      console.log('ERROR SAVING');
+    }
+    else console.log('SAVED');
+  });
 
+
+
+});
 router.get('/FAQ', function (req, res) {
   res.render('FAQ', {
     title : 'FAQ',
