@@ -22,10 +22,14 @@ h2 {
     padding-bottom: 30px;
 }
 
-.subject img {
-    position: : center;
-    height: 250px;
-    width: 350px;
+
+.subject:hover {
+    background-color: #66ff99;
+    -webkit-transition: background-color 1000ms linear;
+    -moz-transition: background-color 1000ms linear;
+    -o-transition: background-color 1000ms linear;
+    -ms-transition: background-color 1000ms linear;
+    transition: background-color 1000ms linear;
 }
 
 .home {
