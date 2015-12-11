@@ -2,23 +2,20 @@
   background-color: #05FF44;
   width: 100%;
   display: block;
-  top: 0;
-  left: 0;
   color: white;
   height: 50px;
+  text-align: center;
 }
 
 .banner img {
-  display: inline-block;
   height: 50px;
   width: 50px;
   float: left;
 }
-.banner h3{
-  display: inline-block;
+
+.banner span {
   color: white;
-  margin-left: auto;
-  margin-right: auto;
+  font-size: 20px;
 }
 
 .nav {
