@@ -202,26 +202,11 @@ router.get('/chat', function(req, res) {
 	    res.render('404');
     }
     else {
-        if (result ==="videogames"){
-            res.render('videogames', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-        if (result ==="sports"){
-            res.render('sports', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-        if (result ==="hobbies"){
-            res.render('hobbies', {
-            title : result + 'Chat',
-            category: result
-        });
-      }
-    }
-  }
+       res.render('chat',{
+        title : result + 'Chat'
+       });
+     }
+}
 });
 router.post('/addChat',function(req,res){
   console.log('SENT TO ADD CHAT');
