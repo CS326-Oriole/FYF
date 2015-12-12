@@ -21,7 +21,7 @@ $(".addChat button").click(function() {
   console.log("Count is at: " + count);
   console.log("Catagory is: " + category);
 
-  var str = '<div class="chatBox col-md-3"' + chatId + ' style="display: none;"> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul ' + window_id + '"></ul> </div> <input ' + input_id + ' placeholder = "Type your message here!"><button onClick="sendMessage(' + count + ')">Send</button><br> </div>';
+  var str = '<div class="chatBox col-md-3"' + chatId + ' style=""> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul ' + window_id + '"></ul> </div> <input ' + input_id + ' placeholder = "Type your message here!"><button onClick="sendMessage(' + count + ')">Send</button><br> </div>';
 
   var chatInfo ={
     chatId : chatId,
@@ -48,7 +48,7 @@ $(".addChat button").click(function() {
 
   $(".chatContainer").append(str);
   socket.emit('chat_created');
-  $(".chatBox:nth-child(" + count + ")").fadeIn(500);
+  //$(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
 });
 
