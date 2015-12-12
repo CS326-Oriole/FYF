@@ -251,8 +251,15 @@ io.on('connection', function(socket){
 						io.emit('chat_message', chat1.field);
 					});
 				}
-	
-			
+
+
 			*/
+	});
+
+	//The function here will get called every time a chat is created
+	//for the format of chatInfo, see chat.js. It's just the chatInfo var that was already there
+	socket.on('chat_created', function(chatInfo) {
+		io.emit('increment_count');
+		//TODO: database stuff here
 	});
 });
