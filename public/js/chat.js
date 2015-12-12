@@ -30,9 +30,9 @@ $(".addChat button").click(function() {
     chatName : chatNameValue
   };
 
-  socket.emit('chat_created', chatInfo);
+  //socket.emit('chat_created', chatInfo);
 
-  $(".chatBox:nth-child(" + count + ")").fadeIn(500);
+  //$(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
   //////////From Here//////////////
 
