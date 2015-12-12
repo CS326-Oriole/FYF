@@ -14,6 +14,11 @@ $(".addChat button").click(function() {
   var chatName = document.getElementById('chatName');
   var chatNameValue = chatName.value;
 
+  if (!chatNameValue) {
+    alert("Chat name does not exist.");
+    return;
+  }
+
   var chatId = 'id=chat-' + count;
   var window_id = "id='" + category + "-chat_window-" + count + "'";
   var input_id = "id='input-" + count + "'";
