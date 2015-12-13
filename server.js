@@ -257,8 +257,7 @@ io.on('connection', function(socket){
 	});
 
 	//The function here will get called every time a chat is created
-	//for the format of chatInfo, see chat.js. It's just the chatInfo var that was already there
-	socket.on('chat_created', function(chatInfo) {
-		io.emit('increment_count');
+	socket.on('chat_created', function(box_info) {
+		io.emit('create_chatbox', box_info);
 	});
 });

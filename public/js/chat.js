@@ -46,21 +46,16 @@ $(".addChat button").click(function() {
     url:"./addChat",
   });
 
-  $(".chatContainer").append(str);
-  socket.emit('chat_created');
+  socket.emit('chat_created', {str: str, category: category});
   //$(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
 });
-
-function createChatBox(info) {
-
-}
 
 function sendMessage(chat_id) {
   var to_send = format($('#input-' + chat_id).val(), category + "-chat_window-" + chat_id, getUserName());
   console.log(to_send.m);
   socket.emit('chat_message', to_send);
-  $('#input').val('');
+  $('#input-' + chat_id).val('');
 };
 
 socket.on('chat_message', function(msg) {
@@ -69,9 +64,12 @@ socket.on('chat_message', function(msg) {
   }
 });
 
-socket.on('increment_count', function() {
+socket.on('create_chatbox', function(box_info) {
   count++;
-  console.log("\nincremented count to: " + count + "\n")
+  console.log("\nincremented count to: " + count + "\n");
+  if(box_info.category===category) {
+    $(".chatContainer").append(box_info.str);
+  }
 })
 
 function format(message, rm, username) {
