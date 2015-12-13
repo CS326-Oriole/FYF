@@ -202,22 +202,65 @@ router.get('/chat', function(req, res) {
 	    res.render('404');
     }
     else {
+      model.lookupChat(result, function(err,chats){
+        if(err) console.log(err + " ERROR LOOKING UP CHATS");
+        else{
+      
       model.countChat(function(err,count){
         if (err) console.log(err);
         else{
-      
-       res.render('chat',{
-        title : result + 'Chat',
-        chatId : count,
-      
+                if (chats.length > 2){
+             res.render('chat',{
+              title : result + 'Chat',
+              chatId : count,
+              chat_1: chats[chats.length-1].field,
+              chat_2: chats[chats.length -2].field,
+              chat_3: chats[chats.length -3].field,
+      				category: result
 
-				category: result
+             });
+           }
+           else if (chats.length > 1){
+            res.render('chat',{
+              title : result + 'Chat',
+              chatId : count,
+              chat_1: chats[chats.length-1].field,
+              chat_2: chats[chats.length -2].field,
+              
+              category: result
 
-       });
+             });
+
+           }
+            else if(chats.length > 0){
+            res.render('chat',{
+              title : result + 'Chat',
+              chatId : count,
+              chat_1: chats[chats.length-1].field,
+              category: result
+
+             });
+           }
+            else{
+               res.render('chat',{
+            title : result + 'Chat',
+            chatId : count,
+            category: result
+
+           });
+            }
      }
+    
+     
+
+   
      });
-   }
-}
+    }
+   });
+
+    }
+ }
+
 });
 router.post('/addChat',function(req,res){
   console.log('SENT TO ADD CHAT');

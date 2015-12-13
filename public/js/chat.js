@@ -1,9 +1,18 @@
 var count = document.getElementById('chatId').innerText;
-
+var chat_1 = document.getElementById('chat_1');
+var chat_2 = document.getElementById('chat_2');
+var chat_3 = document.getElementById('chat_3');
 console.log("intial count is: " + count);
 
 var socket = io();
-
+$(document ).ready(function(){
+  if(chat_1 != null)
+  $(".chatContainer").append(chat_1.innerText);
+if(chat_2 != null)
+  $(".chatContainer").append(chat_2.innerText);
+if(chat_3 != null)
+  $(".chatContainer").append(chat_3.innerText);
+});
 $(".leftSide").fadeIn(500);
 
 var category = document.getElementById('subject').innerText.trim();
