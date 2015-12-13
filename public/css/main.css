@@ -4,7 +4,6 @@
   display: block;
   color: white;
   height: 50px;
-  text-align: center;
 }
 
 .banner img {
@@ -15,7 +14,9 @@
 
 .banner span {
   color: white;
-  font-size: 20px;
+  font-size: 17px;
+  position: absolute;
+  margin-top: 11px;
 }
 
 .nav {
