@@ -32,6 +32,15 @@ h2 {
   transition: background-color 1000ms linear;
 }
 
+.unfinished:hover {
+  background-color: red;
+  -webkit-transition: background-color 1000ms linear;
+  -moz-transition: background-color 1000ms linear;
+  -o-transition: background-color 1000ms linear;
+  -ms-transition: background-color 1000ms linear;
+  transition: background-color 1000ms linear;
+}
+
 .home {
   text-align: center;
   color: #00ff00;
