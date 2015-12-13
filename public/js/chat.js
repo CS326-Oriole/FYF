@@ -35,7 +35,13 @@ $(".addChat button").click(function() {
   console.log("Count is at: " + count);
   console.log("Catagory is: " + category);
 
-  var str = '<div class="chatBox col-md-3"' + chatId + ' style=""> <div class="conversation"> <h2>' + chatName.value + '</h2> <ul ' + window_id + '"></ul> </div> <input ' + input_id + ' placeholder = "Type your message here!"><button onClick="sendMessage(' + count + ')">Send</button><br> </div>';
+  var str = '<div class="col-md-3 chatBox"' + chatId + ' style=""> '
+            + ' <h2 class="chatTitle"> ' + chatName.value + '</h2> '
+            + ' <div class="conversation"> '
+              + '   <ul class="convoList" ' + window_id + '"></ul> </div> '
+            + ' <div class="sendInput"> '
+            + ' <input ' + input_id + ' placeholder = "Type your message here!"> '
+            + ' <button class="sendButton" onClick="sendMessage('+ count + ')">Send</button><br> </input> </div>';
 
   var chatInfo ={
     chatId : chatId,
