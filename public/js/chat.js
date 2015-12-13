@@ -6,7 +6,7 @@ var socket = io();
 
 $(".leftSide").fadeIn(500);
 
-var category = document.getElementById('subject').innerText;
+var category = document.getElementById('subject').innerText.trim();
 console.log(category);
 console.log(count);
 
@@ -35,11 +35,8 @@ $(".addChat button").click(function() {
     chatName : chatNameValue
   };
 
-  //socket.emit('chat_created', chatInfo);
-
   //$(".chatBox:nth-child(" + count + ")").fadeIn(500);
 
-  //////////From Here//////////////
 
   $.ajax({
   contentType : "application/json",
@@ -48,8 +45,6 @@ $(".addChat button").click(function() {
     type: 'POST',
     url:"./addChat",
   });
-  ////////////To Here/////////////
-  //Should go into the socket.on{'chat_created'} function
 
   $(".chatContainer").append(str);
   socket.emit('chat_created');
@@ -57,8 +52,12 @@ $(".addChat button").click(function() {
 
 });
 
+function createChatBox(info) {
+
+}
+
 function sendMessage(chat_id) {
-  var to_send = format($('#input-' + chat_id).val(), "chat_window-" + chat_id, getUserName());
+  var to_send = format($('#input-' + chat_id).val(), category + "-chat_window-" + chat_id, getUserName());
   console.log(to_send.m);
   socket.emit('chat_message', to_send);
   $('#input').val('');

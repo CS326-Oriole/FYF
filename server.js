@@ -260,6 +260,5 @@ io.on('connection', function(socket){
 	//for the format of chatInfo, see chat.js. It's just the chatInfo var that was already there
 	socket.on('chat_created', function(chatInfo) {
 		io.emit('increment_count');
-		//TODO: database stuff here
 	});
 });
