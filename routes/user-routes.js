@@ -205,7 +205,7 @@ router.get('/chat', function(req, res) {
       model.lookupChat(result, function(err,chats){
         if(err) console.log(err + " ERROR LOOKING UP CHATS");
         else{
-      
+
       model.countChat(function(err,count){
         if (err) console.log(err);
         else{
@@ -216,7 +216,8 @@ router.get('/chat', function(req, res) {
               chat_1: chats[chats.length-1].field,
               chat_2: chats[chats.length -2].field,
               chat_3: chats[chats.length -3].field,
-      				category: result
+      				category: result,
+							user: user.username
 
              });
            }
@@ -226,8 +227,9 @@ router.get('/chat', function(req, res) {
               chatId : count,
               chat_1: chats[chats.length-1].field,
               chat_2: chats[chats.length -2].field,
-              
-              category: result
+
+              category: result,
+							user: user.username
 
              });
 
@@ -237,7 +239,8 @@ router.get('/chat', function(req, res) {
               title : result + 'Chat',
               chatId : count,
               chat_1: chats[chats.length-1].field,
-              category: result
+              category: result,
+							user: user.username
 
              });
            }
@@ -245,15 +248,16 @@ router.get('/chat', function(req, res) {
                res.render('chat',{
             title : result + 'Chat',
             chatId : count,
-            category: result
+            category: result,
+						user: user.username
 
            });
             }
      }
-    
-     
 
-   
+
+
+
      });
     }
    });
@@ -266,7 +270,7 @@ router.post('/addChat',function(req,res){
   console.log('SENT TO ADD CHAT');
   console.log(req.body.chatName);
   if(!req.body.chatName){
-    
+
     return;
   }
  model.addChat(req.body.html,req.body.chatId,req.body.category,req.body.chatName,undefined, function(err,save){

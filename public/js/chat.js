@@ -2,6 +2,7 @@ var count = document.getElementById('chatId').innerText;
 var chat_1 = document.getElementById('chat_1');
 var chat_2 = document.getElementById('chat_2');
 var chat_3 = document.getElementById('chat_3');
+var user = document.getElementById('user').innerText;
 console.log("intial count is: " + count);
 
 var socket = io();
@@ -67,7 +68,7 @@ $(".addChat button").click(function() {
 });
 
 function sendMessage(chat_id) {
-  var to_send = format($('#input-' + chat_id).val(), category + "-chat_window-" + chat_id, getUserName());
+  var to_send = format(user + ": " + $('#input-' + chat_id).val(), category + "-chat_window-" + chat_id, getUserName());
   console.log(to_send.m);
   socket.emit('chat_message', to_send);
   $('#input-' + chat_id).val('');
